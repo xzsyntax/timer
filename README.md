@@ -23,22 +23,36 @@ Bu proje, modern ve kullanıcı dostu bir web tabanlı kronometre uygulamasıdı
 2. "Başlat" butonuna tıklayın
 3. İsterseniz "Durdur" butonuyla kronometreyi duraklatın
 4. "Sıfırla" butonu ile kronometreyi sıfırlayın
-5. Süre dolduğunda otomatik olarak alarm çalacaktır
+5. Süre dolduğunda otomatik olarak alarm çalacak
 
-## Kurulum
+## English
 
-1. Projeyi klonlayın:
-```bash
-git clone https://github.com/xzsyntax/Kronometre.git
-```
+# Timer Web Application
 
-2. İndirdiğiniz klasöre gidin:
-```bash
-cd Kronometre
-```
+This project is a modern and user-friendly web-based stopwatch application.
 
-3. `index.html` dosyasını bir web tarayıcısında açın.
+## Features
 
-## Canlı Demo
+- Setting time in minutes and seconds
+- Start/Stop function
+- Reset feature
+- Audible warning when time is up
+- Modern and easy on the eyes
+- Mobile compatible interface
 
-[GitHub Pages üzerinden canlı demo'ya ulaşabilirsiniz](https://xzsyntax.github.io/Kronometre) 
+## Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript (Vanilla JS)
+
+How to use ##
+
+1. Enter minutes and seconds
+2. Click on the “Start” button
+3. Pause the stopwatch with the “Stop” button if desired
+4. Reset the stopwatch with the “Reset” button
+5. Alarm will sound automatically when time is up
+
+
+Translated with DeepL.com (free version)

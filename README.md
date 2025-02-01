@@ -53,6 +53,3 @@ How to use ##
 3. Pause the stopwatch with the “Stop” button if desired
 4. Reset the stopwatch with the “Reset” button
 5. Alarm will sound automatically when time is up
-
-
-Translated with DeepL.com (free version)

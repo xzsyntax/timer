@@ -3,21 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kronometre</title>
+    <title>Kronometre | Timer</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="language-selector">
+        <button onclick="changeLanguage('tr')" class="lang-btn" id="tr-btn">🇹🇷 Türkçe</button>
+        <button onclick="changeLanguage('en')" class="lang-btn" id="en-btn">🇬🇧 English</button>
+    </div>
     <div class="container">
         <div class="timer">
-            <h1>Kronometre</h1>
+            <h1 data-tr="Kronometre" data-en="Timer">Kronometre</h1>
             <div class="time-display">
                 <span id="minutes">00</span>:<span id="seconds">00</span>
             </div>
             <div class="controls">
-                <input type="number" id="setMinutes" placeholder="Dakika" min="0" max="59">
-                <input type="number" id="setSeconds" placeholder="Saniye" min="0" max="59">
-                <button id="startBtn">Başlat</button>
-                <button id="resetBtn">Sıfırla</button>
+                <input type="number" id="setMinutes" data-tr-placeholder="Dakika" data-en-placeholder="Minutes" placeholder="Dakika" min="0" max="59">
+                <input type="number" id="setSeconds" data-tr-placeholder="Saniye" data-en-placeholder="Seconds" placeholder="Saniye" min="0" max="59">
+                <button id="startBtn" data-tr="Başlat" data-en="Start">Başlat</button>
+                <button id="resetBtn" data-tr="Sıfırla" data-en="Reset">Sıfırla</button>
             </div>
         </div>
     </div>

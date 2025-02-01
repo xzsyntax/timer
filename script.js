@@ -5,10 +5,43 @@ const resetBtn = document.getElementById('resetBtn');
 const setMinutesInput = document.getElementById('setMinutes');
 const setSecondsInput = document.getElementById('setSeconds');
 const alarmSound = document.getElementById('alarmSound');
+const trBtn = document.getElementById('tr-btn');
+const enBtn = document.getElementById('en-btn');
 
 let timeLeft;
 let timerId = null;
 let isRunning = false;
+let currentLanguage = 'tr';
+
+// Dil değiştirme fonksiyonu
+function changeLanguage(lang) {
+    currentLanguage = lang;
+    
+    // Dil butonlarının aktif durumunu güncelle
+    if (lang === 'tr') {
+        trBtn.classList.add('active');
+        enBtn.classList.remove('active');
+    } else {
+        enBtn.classList.add('active');
+        trBtn.classList.remove('active');
+    }
+
+    // Başlığı güncelle
+    document.querySelector('h1').textContent = document.querySelector('h1').getAttribute(`data-${lang}`);
+    
+    // Butonları güncelle
+    startBtn.textContent = startBtn.getAttribute(`data-${lang}`);
+    resetBtn.textContent = resetBtn.getAttribute(`data-${lang}`);
+    
+    // Input placeholder'ları güncelle
+    setMinutesInput.placeholder = setMinutesInput.getAttribute(`data-${lang}-placeholder`);
+    setSecondsInput.placeholder = setSecondsInput.getAttribute(`data-${lang}-placeholder`);
+
+    // Başlat/Durdur butonunun durumunu kontrol et
+    if (isRunning) {
+        startBtn.textContent = lang === 'tr' ? 'Başlat' : 'Start';
+    }
+}
 
 function updateDisplay(minutes, seconds) {
     minutesDisplay.textContent = minutes.toString().padStart(2, '0');
@@ -18,7 +51,7 @@ function updateDisplay(minutes, seconds) {
 function startTimer() {
     if (isRunning) {
         clearInterval(timerId);
-        startBtn.textContent = 'Başlat';
+        startBtn.textContent = currentLanguage === 'tr' ? 'Başlat' : 'Start';
         isRunning = false;
         return;
     }
@@ -29,7 +62,7 @@ function startTimer() {
     if (minutes === 0 && seconds === 0) return;
 
     timeLeft = minutes * 60 + seconds;
-    startBtn.textContent = 'Durdur';
+    startBtn.textContent = currentLanguage === 'tr' ? 'Durdur' : 'Stop';
     isRunning = true;
 
     timerId = setInterval(() => {
@@ -38,7 +71,7 @@ function startTimer() {
         if (timeLeft < 0) {
             clearInterval(timerId);
             alarmSound.play();
-            startBtn.textContent = 'Başlat';
+            startBtn.textContent = currentLanguage === 'tr' ? 'Başlat' : 'Start';
             isRunning = false;
             updateDisplay(0, 0);
             return;
@@ -53,7 +86,7 @@ function startTimer() {
 function resetTimer() {
     clearInterval(timerId);
     isRunning = false;
-    startBtn.textContent = 'Başlat';
+    startBtn.textContent = currentLanguage === 'tr' ? 'Başlat' : 'Start';
     setMinutesInput.value = '';
     setSecondsInput.value = '';
     updateDisplay(0, 0);
@@ -73,4 +106,7 @@ setMinutesInput.addEventListener('input', function() {
 setSecondsInput.addEventListener('input', function() {
     if (this.value > 59) this.value = 59;
     if (this.value < 0) this.value = 0;
-}); 
+});
+
+// Sayfa yüklendiğinde Türkçe'yi aktif et
+changeLanguage('tr'); 
